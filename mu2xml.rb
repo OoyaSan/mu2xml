@@ -39,22 +39,22 @@ def parseSeries(inp)
 	begin
 	title = series.xpath("//span[@class='releasestitle tabletitle']").children[0].to_s
 
-	status_string = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[14]").children[0].to_s.strip
+	status_string = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[14]").children[0].to_s.strip
 	volumeCount =status_string.split(' ')[0]
 	status = status_string.split(' ')[-1][1..-2]
-	type = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[4]").children[0].to_s.strip
-	related_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[6]/a")
-	name_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[8]")
-	group_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[10]/a")
-	tlstatus = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[3]/div[1]/div[16]").children[0].to_s.strip
+	type = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[4]").children[0].to_s.strip
+	related_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[6]/a")
+	name_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[8]")
+	group_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[10]/a")
+	tlstatus = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[3]/div[16]").children[0].to_s.strip
 
-	author_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[12]/a")
-	artist_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[14]/a")
-	year = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[16]").children[0].to_s.strip
-	publisher_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[18]/a")
-	mag_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[20]/a")
-	licensed = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[22]").children[0].to_s.strip
-	engPublisher_list = series.xpath("//*[@id='main_content']/table[2]/tr/td/div[1]/div[4]/div[1]/div[24]/a")
+	author_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[12]/a")
+	artist_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[14]/a")
+	year = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[16]").children[0].to_s.strip
+	publisher_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[18]/a")
+	mag_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[20]/a")
+	licensed = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[22]").children[0].to_s.strip
+	engPublisher_list = series.xpath("//*[@id='main_content']/div[2]/div[1]/div[4]/div[24]/a")
 	rescue => e
 		logger.error(e)
 		return returnError("Unable to parse content")
